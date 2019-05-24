@@ -15,3 +15,14 @@ optional arguments:
     -s CHUNK_SIZE   Split by chunk size (default: 5k)
     -d DESTINATION  Destination file name (default: same as local filename)
 ```
+## Example
+```
+user@kali# python b64chunk.py --target powershell ./test.bin
+$qcturmrs = @()
+$qcturmrs += [System.Convert]::FromBase64String("O17jKOVg...0jSS1+4=")
+$qcturmrs += [System.Convert]::FromBase64String("nQa7gkvB...kBQrwp0=")
+$qcturmrs += [System.Convert]::FromBase64String("GK43JF6b...6suWCg==")
+[Environment]::CurrentDirectory = (Get-Location -PSProvider FileSystem).ProviderPath
+[System.IO.File]::WriteAllBytes("test.bin", $qcturmrs)
+Remove-Variable qcturmrs
+```
