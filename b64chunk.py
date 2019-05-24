@@ -10,10 +10,13 @@
 		  FILE            Local file
 
 		optional arguments:
-		  -h, --help      show this help message and exit
-		  -t TARGET       Target shell (bash, cmd, powershell - default: bash)
-		  -s CHUNK_SIZE   Chunk size (1k, 2M, 500B - default: 5k)
-		  -d DESTINATION  Destination file name (default: same as local filename
+		  -h, --help            show this help message and exit
+		  -t TARGET, --target TARGET
+		                        Target shell (bash, cmd, powershell - default: bash)
+		  -s CHUNK_SIZE, --split CHUNK_SIZE
+		                        Split by chunk size (default: 5k)
+		  -d DESTINATION, --dest DESTINATION
+		                        Destination file name (default: local filename)
 """
 
 import argparse
@@ -45,11 +48,10 @@ def randomString(stringLength=8):
 parser = argparse.ArgumentParser(
 	description='Recreate files using base64 encoding',
 	epilog="""
-Generates a series of shell commands to build the original file using base64 encoding.
-Target shell can be bash, cmd.exe, or powershell (any version).
+Generates a series of shell commands to build a file using base64 encoding. 
+Target shell can be bash, cmd.exe, or powershell (any version). 
 Input file can be ascii or binary. 
-Output from this script can be copy-and-pasted directly into a local or remote terminal session.
-"""
+Output from this script can be copy-and-pasted directly into a local or remote terminal session."""
 	)
 parser.add_argument('-t','--target', dest='target', default='b',
                     help='Target shell (bash, cmd, powershell - default: bash)')
