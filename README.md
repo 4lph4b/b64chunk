@@ -15,9 +15,30 @@ optional arguments:
     -s CHUNK_SIZE   Split by chunk size (default: 5k)
     -d DESTINATION  Destination file name (default: same as local filename)
 ```
-## Example
+## Bash Example
+```
+user@kali# python b64chunk.py --target bash ./test.bin
+rm test.bin
+echo -n 'O17jKOVg...0jSS1+4=' | base64 -d >> test.bin
+echo -n 'nQa7gkvB...kBQrwp0=' | base64 -d >> test.bin
+echo -n 'GK43JF6b...6suWCg==' | base64 -d >> test.bin
+```
+## Cmd Example
+```
+user@kali# python b64chunk.py --target cmd ./test.bin
+del /Q test.bin
+del /Q kfkjubmg
+echo|set /p="O17jKOVg...r5J8fz1H" >> kfkjubmg
+echo|set /p="YzDOG1XA...4WXvKprN" >> kfkjubmg
+echo|set /p="c7TsEQEx...3gPDO9A+" >> kfkjubmg
+echo|set /p="RDoV+R+O...yerLlgo=" >> kfkjubmg
+certutil -decode kfkjubmg test.bin
+del /Q kfkjubmg
+```
+## Powershell Example
 ```
 user@kali# python b64chunk.py --target powershell ./test.bin
+del test.bin
 $qcturmrs = @()
 $qcturmrs += [System.Convert]::FromBase64String("O17jKOVg...0jSS1+4=")
 $qcturmrs += [System.Convert]::FromBase64String("nQa7gkvB...kBQrwp0=")
