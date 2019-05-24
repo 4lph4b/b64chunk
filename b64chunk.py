@@ -142,7 +142,7 @@ elif args.target[0] == 'p':
 	# Write file
 	print('[System.IO.File]::WriteAllBytes("%s", $%s)' % (destFilename, tmpVar))
 
-	# Remote tmp variable
+	# Remove tmp variable
 	print('Remove-Variable %s' % tmpVar)
 
 
